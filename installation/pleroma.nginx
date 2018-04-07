@@ -12,7 +12,7 @@ server {
     ssl on;
     ssl_session_timeout 5m;
 
-    ssl_certificate           /etc/letsencrypt/live/exmaple.tld/fullchain.pem;
+    ssl_certificate           /etc/letsencrypt/live/example.tld/fullchain.pem;
     ssl_certificate_key       /etc/letsencrypt/live/example.tld/privkey.pem;
 
     ssl_protocols TLSv1 TLSv1.1 TLSv1.2;

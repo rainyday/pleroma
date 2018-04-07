@@ -1,0 +1,7 @@
+FROM nginx
+
+COPY pleroma.nginx /etc/nginx/conf.d/pleroma.conf
+
+ARG DOMAIN
+
+RUN sed -i "s/example.tld/${DOMAIN}/g; s/localhost/pleroma/g" /etc/nginx/conf.d/pleroma.conf

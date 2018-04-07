@@ -1,0 +1,14 @@
+version: "3"
+services:
+  certbot:
+    image: pierreprinetti/certbot:latest
+    environment:
+    - domains
+    - email
+    ports:
+    - 80:80
+    - 443:443
+    volumes:
+    - certs:/etc/letsencrypt
+volumes:
+  certs:

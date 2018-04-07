@@ -16,3 +16,9 @@ erl_crash.dump
 # secrets files as long as you replace their contents by environment
 # variables.
 /config/*.secret.exs
+
+# 12factor
+/.env
+
+# Operating System files
+.DS_Store

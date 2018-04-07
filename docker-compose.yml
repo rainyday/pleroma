@@ -1,0 +1,31 @@
+version: "3"
+services:
+  db:
+    image: postgres:10
+    volumes:
+    - db:/var/lib/postgresql/data
+  pleroma:
+    image: homulilly/pleroma:${TAG:-latest}
+    build:
+      context: .
+      args:
+      - MIX_ENV
+      - DOMAIN
+    volumes:
+    - uploads:/pleroma/uploads
+  web:
+    image: homulilly/pleromaweb:${TAG:-latest}
+    build:
+      dockerfile: Dockerfile.nginx
+      context: ./installation
+      args:
+      - DOMAIN
+    ports:
+    - 80:80
+    - 443:443
+    volumes:
+    - certs:/etc/letsencrypt
+volumes:
+  db:
+  certs:
+  uploads:
